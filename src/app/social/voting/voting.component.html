@@ -1,0 +1,30 @@
+<div class="py-5" *ngIf="isMarkerSelected">
+  <div class="container" id="one">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card text-center">
+          <div class="card-body">
+            <h1 class="card-title" id="loc">{{location.lat}} , {{location.lng}}</h1>
+            <hr />
+            <span id="rtype">{{location.roadtype}}</span>
+            <hr />
+            <button id="upbtn" class="btn btn-success " (click)="vote('up');">
+              <i class="fa fa-2x fa-thumbs-up" aria-hidden="true"></i> <br />
+              <span class="count" > {{ location.upvotes}} </span>
+            </button>
+
+            <button
+              id="downbtn"
+              style="margin-left:30px;"
+              class="btn btn-danger"
+              (click)="vote('down')"
+            >
+              <i class="fa fa-2x fa-thumbs-down" aria-hidden="true"></i>
+              <br /><span class="count" > {{location.downvotes}} </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

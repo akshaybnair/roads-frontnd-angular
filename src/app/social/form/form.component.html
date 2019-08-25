@@ -1,0 +1,76 @@
+<div class="py-5 text-center">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-lg-12 ">
+        <h1>Add a new Pothole</h1>
+        <hr />
+        <form
+          class="text-left"
+          [formGroup]="newPointForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <h3>Pothole position</h3>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lat"
+                [ngClass]="{
+                  'is-invalid':
+                    !newPointForm.controls.lat.valid &&
+                    newPointForm.controls.lat.touched
+                }"
+                placeholder="Latitude"
+              />
+            </div>
+            <div class="form-group col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lng"
+                [ngClass]="{
+                  'is-invalid':
+                    !newPointForm.controls.lng.valid &&
+                    newPointForm.controls.lng.touched
+                }"
+                placeholder="Longitude"
+              />
+            </div>
+            <div class="form-group col-md-2">
+              <a class="btn btn-primary" routerLink="/social"> Select from map</a>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="roadtype">Select road type</label>
+              <select
+                #roadtype
+                formControlName="roadtype"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    !newPointForm.controls.roadtype.valid &&
+                    newPointForm.controls.roadtype.touched
+                }"
+              >
+                <option value="" disabled="" selected
+                  >Choose your option</option
+                >
+                <option value="pothole">Pothole</option>
+                <option value="hump">Hump</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-primary" [disabled]="!newPointForm.valid">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

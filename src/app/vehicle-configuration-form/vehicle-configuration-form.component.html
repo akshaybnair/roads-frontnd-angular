@@ -1,0 +1,144 @@
+<div class="py-5 text-center" style="">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-lg-12 ">
+        <h1>Vehicle configuration details</h1>
+        <hr />
+        <form   class="text-left"
+                [formGroup]="vehicleConfigForm"
+                (ngSubmit)="onSubmit()">
+          <h3>Current vehicle position</h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lat"
+                id="lat"
+                placeholder="Latitude"
+                [ngClass]="{
+                  'is-invalid':
+                    !vehicleConfigForm.controls.lat.valid &&
+                    vehicleConfigForm.controls.lat.touched
+                }"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lng"
+                placeholder="Longitude"
+                [ngClass]="{
+                  'is-invalid':
+                    !vehicleConfigForm.controls.lng.valid &&
+                    vehicleConfigForm.controls.lng.touched
+                }"
+              />
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="form-group col-10">
+              <label for="formControlRange">Select RPM of the Vehicle</label>
+              <input
+                formControlName="rpm"
+                (input)="updateValueonSliderChange()"
+                (change)="updateValueonSliderChange()"
+                type="range"
+                min="0"
+                max="10000"
+                class="form-control-range"
+                id="rpm"
+                value="0"
+                [ngClass]="{
+                  'is-invalid':
+                    !vehicleConfigForm.controls.rpm.valid &&
+                    vehicleConfigForm.controls.rpm.touched
+                }"
+              />
+            </div>
+            <div class="form-group col-2">
+              <input
+                formControlName="rpmVal"
+                type="text"
+                class="form-control"
+                id="rpmip"
+                value="0"
+                [ngClass]="{
+                  'is-invalid':
+                    !vehicleConfigForm.controls.rpm.valid &&
+                    vehicleConfigForm.controls.rpm.touched
+                }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="form16">Wheel Radius</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="radius"
+                  placeholder="Enter wheel Radius (mm)"
+                />
+              </div>
+              <div class="form-group">
+                <label for="form17">Wheel Base</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bade"
+                  formControlName="tyreRadius"
+                  placeholder="Enter Wheel Base (mm)"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="form19">Front</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="front"
+                    placeholder="Front"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="form19">Rear</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="rear"
+                    placeholder="Rear"
+                  />
+                </div>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="form18">Ground Clearance</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gdclearance"
+                  placeholder="Enter Ground Clearance (mm)"
+                />
+              </div>
+              <div class="form-group">
+                <label for="form18">Turning Radius</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="turning_radius"
+                  placeholder="Enter turning radius (m)"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
